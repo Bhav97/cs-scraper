@@ -17,6 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "apicache": "^0.2.2",
     "cheerio": "^0.22.0",
     "express": "^4.14.0",
     "request": "^2.75.0"

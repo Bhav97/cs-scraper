@@ -7,7 +7,8 @@ var request = require('request');
 
 module.exports = {
   scrape : function(res, req, url, page) {
-    request(url, function(err, inres, html) {
+    request({url: url, time: true}, function(err, inres, html) {
+      console.log('Request time in ms: ', inres.elapsedTime);
       if(!err && inres.statusCode == 200) {
         res.writeHead(200, {'Content-Type': 'application/json;charset=utf-8'});
         var $ = cheerio.load(html);
