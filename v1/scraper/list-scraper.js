@@ -14,9 +14,8 @@ module.exports = {
         var list = [];
         $('.excerpt').each(function(index) {
           list.push({
-            id: parseInt(page + index),
             url : $(this).children().eq(0).children().eq(0).attr('href'),
-            image : $(this).children().eq(0).children().eq(0).children().eq(0).attr('src'),
+            thumbnail : $(this).children().eq(0).children().eq(0).children().eq(0).attr('src'),
             logo : "http://www.commitstrip.com/" + $(this).children().eq(0).children().eq(0).children().eq(1).children().eq(0).attr('src'),
             title : $(this).children().eq(0).children().eq(0).children().eq(1).children().eq(1).text(),
             page : page

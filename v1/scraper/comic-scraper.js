@@ -1,5 +1,5 @@
 /**
-* Scraper that scrapes off comic lists from the page
+* Scraper that scrapes off comic data from url
 */
 
 var cheerio = require('cheerio');
