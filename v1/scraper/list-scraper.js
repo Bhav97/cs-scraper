@@ -13,9 +13,13 @@ module.exports = {
         var $ = cheerio.load(html);
         var list = [];
         $('.excerpt').each(function(index) {
+          thumbnail = $(this).children().eq(0).children().eq(0).children().eq(0).attr('src');
+          if (typeof(thumbnail) === 'undefined') {
+            thumbnail = $(this).children().eq(0).children().eq(0).children().eq(0).attr('style').replace(/[^D#]+/, "");
+          }
           list.push({
             url : $(this).children().eq(0).children().eq(0).attr('href'),
-            thumbnail : $(this).children().eq(0).children().eq(0).children().eq(0).attr('src'),
+            thumbnail : thumbnail,
             logo : "http://www.commitstrip.com/" + $(this).children().eq(0).children().eq(0).children().eq(1).children().eq(0).attr('src'),
             title : $(this).children().eq(0).children().eq(0).children().eq(1).children().eq(1).text(),
             page : page
