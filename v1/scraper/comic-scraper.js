@@ -13,9 +13,9 @@ module.exports = {
         var $ = cheerio.load(html);
         var comic = {}
         comic.id = parseInt($('article').attr('id').replace(/^\D+/, ''));
-        comic.image = $('.entry-content').children().eq(0).children().eq(0).attr('src');
-        comic.height =  parseInt($('.entry-content').children().eq(0).children().eq(0).attr('height'));
-        comic.width = parseInt($('.entry-content').children().eq(0).children().eq(0).attr('width'));
+        comic.image = $('.entry-content').find('img').attr('src');
+        comic.height =  parseInt($('.entry-content').find('img').attr('height'));
+        comic.width = parseInt($('.entry-content').find('img').attr('width'));
         res.end(JSON.stringify(comic));
       } else {
         res.writeHead(500, {'Content-Type' : 'text;charset=utf-8'});
